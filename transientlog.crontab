@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[ -x /etc/init.d/transientlog ] || exit 0
+[ -f /var/lock/transientlog.lock ] || exit 0
+/etc/init.d/transientlog reload
