@@ -78,6 +78,7 @@ do_start()
 	# a tmpfs over it.
 	#
 	mount --bind $VARLOG $VARLOGPERM
+	mount --make-private $VARLOGPERM
 	mount -t tmpfs -o nosuid,noexec,nodev,mode=$MODE,size=$SIZE $NAME $VARLOG
 	if [ $? -eq 0 ]; then
 		# Populate the tmpfs
