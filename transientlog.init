@@ -29,7 +29,7 @@ NAME=transientlog
 DESC="Transient log directory"
 LOCKFILE=/var/lock/$NAME.lock
 VARLOG=/var/log
-SIZE=16M
+SIZE=25M
 MODE=0755
 
 # Read configuration variable file if it is present
