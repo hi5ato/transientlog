@@ -144,10 +144,12 @@ do_reload() {
 
 
 
+RC=3
 case "$1" in
   start)
 	[ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC" "$NAME"
 	do_start
+	RC=$?
 	case "$?" in
 		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
 		2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
@@ -156,12 +158,14 @@ case "$1" in
   stop)
 	[ "$VERBOSE" != no ] && log_daemon_msg "Stopping $DESC" "$NAME"
 	do_stop
+	RC=$?
 	case "$?" in
 		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
 		2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
 	esac
 	;;
   status)
+	RC=0
   	if [ -f $LOCKFILE ]; then
 		echo "$DESC is running"
 	else
@@ -172,10 +176,12 @@ case "$1" in
   reload)
 	log_daemon_msg "Reloading $DESC" "$NAME"
 	do_reload
-	log_end_msg $?
+	RC=$?
+	log_end_msg $RC
 	;;
   *)
 	echo "Usage: $0 {start|stop|status|reload}" >&2
 	exit 3
 	;;
 esac
+exit $RC
