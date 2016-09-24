@@ -27,7 +27,7 @@
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 NAME=transientlog
 DESC="Transient log directory"
-LOCKFILE=/var/lock/$NAME.lock
+LOCKFILE=/var/run/$NAME.pid
 VARLOG=/var/log
 SIZE=25M
 MODE=0755
