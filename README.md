@@ -1,5 +1,14 @@
 # A transient /var/log for Raspberry Pi
 
+# This project was abandoned
+My Raspberry Pi has been broken last year.
+I can not maintain this software anymore.
+Please use  [log2ram](https://github.com/azlux/log2ram).
+
+Thank you.
+
+# abstract
+Write the log on memory, not on disk.
 For Raspberry Pi or other SD card linux.
 I test on raspbian.
 
